@@ -1,0 +1,100 @@
+Restore Archived Project report for audio_basicInOut
+Fri Mar  1 09:39:41 2024
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Fri Mar  1 09:39:41 2024 ;
+; Revision Name                   ; audio_basicInOut                      ;
+; Top-level Entity Name           ; audioTop                              ;
+; Family                          ; Cyclone V                             ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'C:/Users/ade2y/Downloads/audio_basicInOut.qar' into the 'C:/Users/ade2y/OneDrive - University of Greenwich/VHDL/Audio/' directory
+Info: Generated report 'audio_basicInOut.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/22.1std/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4843 megabytes
+    Info: Processing ended: Fri Mar  1 09:39:41 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+
++------------------------------------------------+
+; Files Restored                                 ;
++------------------------------------------------+
+; File Name                                      ;
++------------------------------------------------+
+; qar_info.json                                  ;
+; altera_up_audio_bit_counter.v                  ;
+; altera_up_audio_in_deserializer.v              ;
+; altera_up_audio_out_serializer.v               ;
+; altera_up_clock_edge.v                         ;
+; altera_up_i2c.v                                ;
+; altera_up_i2c_av_auto_initialize.v             ;
+; altera_up_slow_clock_generator.v               ;
+; altera_up_sync_fifo.v                          ;
+; audioFiltersMatlab_PKG.vhd                     ;
+; audioTop.vhd                                   ;
+; audio_and_video_config.v                       ;
+; audio_basicInOut.qsf                           ;
+; audio_basicInOut_assignment_defaults.qdf       ;
+; audio_codec.v                                  ;
+; filter.vhd                                     ;
+; kj.cdf                                         ;
+; kjDSP.qpf                                      ;
+; kj_clock_generator.cmp                         ;
+; kj_clock_generator.qip                         ;
+; kj_clock_generator.sip                         ;
+; kj_clock_generator.spd                         ;
+; kj_clock_generator.vhd                         ;
+; kj_clock_generator/kj_clock_generator_0002.qip ;
+; kj_clock_generator/kj_clock_generator_0002.v   ;
+; kj_clock_generator_sim/kj_clock_generator.vho  ;
++------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+
