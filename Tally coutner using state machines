@@ -1,0 +1,91 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tallyCounter_stateMachine is port
+(
+	button, reset, clk	: in std_logic;
+	sseg						: out std_logic_vector(7 downto 0)
+);
+end tallyCounter_stateMachine;
+
+architecture behavioural of tallyCounter_stateMachine is
+
+type state_type is (waitForButtonPush, waitForRelease, delayedReset);
+
+signal state : state_type;
+signal count : integer := 0;
+
+begin
+	state_machine: process (clk, button, reset)
+	variable timer : integer range 0 to 150000000 := 0;
+	begin
+		if (rising_edge(clk)) then
+		case state is 
+			when waitForButtonPush =>
+				if button = '0' then
+					state <= waitForRelease;
+					count <= count +1;
+						if count >= 9 then
+						count <= 0;
+						end if;
+				elsif reset <= '0' then
+					state <= delayedReset;
+					timer := 0;
+				else
+					state <=waitForButtonPush;
+				end if;
+			
+			when waitForRelease =>
+				if button = '0' then
+					state <= waitForRelease;
+				else
+					state <= waitForButtonPush;
+				end if;
+				
+			when delayedReset =>
+				if (reset = '0' and timer < 150000000) then
+					state <= delayedReset;
+					timer := timer +1;
+				elsif (timer >= 150000000) then
+					state <= waitForButtonPush;
+					count <= 0;
+					timer := 0;
+				else 
+					state <= waitForButtonPush;
+					timer := 0;
+				end if;
+			end case;
+			
+		end if;
+	end process;
+	
+	display : process(count)
+	begin
+	case count is
+		when 0 =>
+			sseg <= "11000000";
+		when 1 =>
+			sseg <= "11111001";
+		when 2 =>
+			sseg <= "10100100";
+		when 3 =>
+			sseg <= "10110000";
+		when 4 =>
+			sseg <= "10011001";
+		when 5 =>
+			sseg <= "10010010";
+		when 6 =>
+			sseg <= "10000010";
+		when 7 =>
+			sseg <= "11111000";
+		when 8 =>
+			sseg <= "10000000";
+		when 9 =>
+			sseg <= "10010000";
+		when others =>
+			sseg <= "11111111";
+	end case;
+end process;
+end behavioural;
+				
