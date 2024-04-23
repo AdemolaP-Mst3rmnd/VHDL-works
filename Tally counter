@@ -1,0 +1,38 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+
+entity tallycounter is port
+(
+	clk : in std_logic;
+	rst : in std_logic;
+	gen_out : out std_logic
+);
+end tallycounter;
+--
+architecture behavioural of tallycounter is
+		constant duty : real := 0.6;
+		constant fclk : integer := 200_000_000;
+		constant fsw : integer := 400_000;
+		signal counter_pwm :std_logic_vector (8 downto 0);
+		signal duty_count : integer := integer (duty*fclk/fsw);
+		
+begin
+	process (clk)
+	begin
+		if rst = '1' then
+			counter_pwm <= (others => '0');
+		elsif rising_edge (clk) then
+			if counter_pwm < fclk/fsw-1 then
+				counter_pwm <= counter_pwm + '1';
+			else
+				counter_pwm <= (others => '0');
+			end if;
+		end if;
+		end process;
+		
+		gen_out <= '1' when counter_pwm <duty_count
+							else '0';
+							
+end behavioural;
